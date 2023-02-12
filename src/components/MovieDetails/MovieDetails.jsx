@@ -71,27 +71,31 @@ const MovieDetails = () => {
           </div>
         </div>
       )}
-      <hr />
-      <div>
-        <h2>Additional Information</h2>
-        <NavLink
-          to={`/movies/${movieId}/reviews`}
-          style={({ isActive }) => (isActive ? activeClassName : undefined)}
-          state={location.state}
-        >
-          <p>Reviews</p>
-        </NavLink>
+      {!loading && (
+        <>
+          <hr />
+          <div>
+            <h2>Additional Information</h2>
+            <NavLink
+              to={`/movies/${movieId}/reviews`}
+              style={({ isActive }) => (isActive ? activeClassName : undefined)}
+              state={location.state}
+            >
+              <p>Reviews</p>
+            </NavLink>
 
-        <NavLink
-          to={`/movies/${movieId}/cast`}
-          style={({ isActive }) => (isActive ? activeClassName : undefined)}
-          state={location.state}
-        >
-          <p>Cast</p>
-        </NavLink>
-        <hr />
-        <Outlet />
-      </div>
+            <NavLink
+              to={`/movies/${movieId}/cast`}
+              style={({ isActive }) => (isActive ? activeClassName : undefined)}
+              state={location.state}
+            >
+              <p>Cast</p>
+            </NavLink>
+            <hr />
+            <Outlet />
+          </div>
+        </>
+      )}
     </>
   );
 };

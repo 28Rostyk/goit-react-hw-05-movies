@@ -1,9 +1,9 @@
 // import css from './Home.module.css';
-import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getTrendingMovies } from 'services/Api';
 import { ColorRing } from 'react-loader-spinner';
 import { ToastContainer, toast } from 'react-toastify';
+import MovieList from 'components/MovieList';
 import 'react-toastify/dist/ReactToastify.css';
 const Home = () => {
   const [items, setItems] = useState([]);
@@ -40,15 +40,7 @@ const Home = () => {
         />
       )}
       <h2>Trending Movies</h2>
-      <ul>
-        {items.map(({ id, title }) => (
-          <li key={Number(id)}>
-            <Link to={`/movies/${id}`}>
-              <h3>{title}</h3>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {items && <MovieList movies={items} />}
       {error && <p>{error}</p>}
       <ToastContainer autoClose={3000} />
     </>
