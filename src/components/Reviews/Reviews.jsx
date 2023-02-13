@@ -17,7 +17,6 @@ const Reviews = () => {
     const movieReviews = async () => {
       try {
         const results = await getMovieReviews(movieId);
-        console.log(results);
         setReviews(results);
       } catch (error) {
         setError(toast.error('Ooops. Something went wrong...'));

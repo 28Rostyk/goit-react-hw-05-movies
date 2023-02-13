@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
+import { AiOutlineSearch } from 'react-icons/ai';
+import css from './searchBar.module.css';
 
 const SearchBar = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -13,25 +15,31 @@ const SearchBar = ({ onSearch }) => {
     if (searchQuery.trim() === '') {
       toast.info('Enter the film title');
     }
+
     onSearch(searchQuery);
     setSearchQuery('');
   };
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <input
-            type="text"
-            name="searchQuery"
-            value={searchQuery}
-            autoComplete="off"
-            autoFocus
-            placeholder="Search ..."
-            onChange={handleQuerySearch}
-          />
-        </label>
-        <button type="submit">Search</button>
+      <form className={css.searchForm} onSubmit={handleSubmit}>
+        <div className={css.container}>
+          <label>
+            <input
+              className={css.searchInput}
+              type="text"
+              name="searchQuery"
+              value={searchQuery}
+              autoComplete="off"
+              autoFocus
+              placeholder="Search ..."
+              onChange={handleQuerySearch}
+            />
+          </label>
+          <button className={css.searchButton} type="submit">
+            <AiOutlineSearch className={css.SearchBtnIcon} />
+          </button>
+        </div>
       </form>
     </>
   );

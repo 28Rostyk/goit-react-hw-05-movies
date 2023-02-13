@@ -29,6 +29,7 @@ const Home = () => {
 
   return (
     <>
+      <h2 className={css.title}>Trending Movies</h2>
       {loading && (
         <ColorRing
           visible={true}
@@ -40,7 +41,7 @@ const Home = () => {
           colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
         />
       )}
-      <h2 className={css.title}>Trending Movies</h2>
+
       {items && <MovieList movies={items} />}
       {error && <p>{error}</p>}
     </>

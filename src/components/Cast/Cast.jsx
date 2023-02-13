@@ -46,7 +46,7 @@ const Cast = () => {
       <ul className={css.list}>
         {cast.map(castItem => {
           return (
-            <li key={castItem.id}>
+            <li className={css.list_item} key={castItem.id}>
               {
                 <img
                   width="200"

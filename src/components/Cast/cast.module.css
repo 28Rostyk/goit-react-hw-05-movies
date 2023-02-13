@@ -1,8 +1,10 @@
 .list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
   list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.list_item {
+  margin-bottom: 25px;
 }

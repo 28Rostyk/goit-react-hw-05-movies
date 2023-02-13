@@ -1,0 +1,35 @@
+.searchForm {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  position: relative;
+}
+
+.searchInput {
+  outline: none;
+  width: 300px;
+  padding: 5px;
+}
+.searchInput::placeholder {
+  font: inherit;
+  font-size: 18px;
+}
+
+.searchButton {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  padding: 5px 8px;
+  cursor: pointer;
+  /* background-color: transparent; */
+  border: none;
+  border-radius: 2px;
+}
+
+.searchButton:hover {
+  background-color: rgb(44, 169, 197);
+  border: none;
+}
