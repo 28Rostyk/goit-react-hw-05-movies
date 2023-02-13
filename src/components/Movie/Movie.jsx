@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import SearchBar from 'components/SearchBar';
 import { ColorRing } from 'react-loader-spinner';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 import { getMovieSearch } from 'services/Api';
 import MovieList from 'components/MovieList';
@@ -22,42 +22,20 @@ const Movie = () => {
     if (!searchRequest) {
       return;
     }
-    setLoading(true);
-    const fetchMovie = () => {
-      getMovieSearch(searchRequest)
-        .then(results => {
-          if (!results.length) {
-            toast.info('No movies found!');
-          }
+    const movieSearch = async () => {
+      try {
+        setLoading(true);
+        const results = await getMovieSearch(searchRequest);
 
-          setMovies(results);
-        })
-        .catch(error => {
-          setError(toast.error('Ooops. Something went wrong...'));
-          console.log(error);
-        })
-        .finally(setLoading(false));
+        setMovies(results);
+      } catch (error) {
+        setError(toast.error('Ooops. Something went wrong...'));
+      } finally {
+        setLoading(false);
+      }
     };
-    fetchMovie();
+    movieSearch();
   }, [searchRequest, setLoading]);
-
-  //   useEffect(() => {
-  //     setLoading(true);
-  //     if (!searchRequest) {
-  //       return;
-  //     }
-  //     const movieSearch = async () => {
-  //       try {
-  //         const results = getMovieSearch(searchRequest);
-  //         console.log(results);
-  //         setMovies(results);
-  //       } catch (error) {
-  //       } finally {
-  //         setLoading(false);
-  //       }
-  //     };
-  //     movieSearch();
-  //   }, [searchRequest]);
 
   function onSubmit(value) {
     setSearchParams({ query: `${value}` });
@@ -81,7 +59,6 @@ const Movie = () => {
       {movies.length > 0 && (
         <MovieList movies={movies} prevLocation={location} />
       )}
-      <ToastContainer autoClose={3000} />
     </>
   );
 };

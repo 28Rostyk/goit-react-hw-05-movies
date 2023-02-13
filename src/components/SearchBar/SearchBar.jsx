@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 const SearchBar = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -10,7 +11,7 @@ const SearchBar = ({ onSearch }) => {
   const handleSubmit = e => {
     e.preventDefault();
     if (searchQuery.trim() === '') {
-      alert('Enter the film title');
+      toast.info('Enter the film title');
     }
     onSearch(searchQuery);
     setSearchQuery('');

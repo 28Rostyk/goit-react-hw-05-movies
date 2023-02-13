@@ -2,9 +2,10 @@
 import { useState, useEffect } from 'react';
 import { getTrendingMovies } from 'services/Api';
 import { ColorRing } from 'react-loader-spinner';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import MovieList from 'components/MovieList';
 import 'react-toastify/dist/ReactToastify.css';
+import css from './home.module.css';
 const Home = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -35,14 +36,13 @@ const Home = () => {
           width="80"
           ariaLabel="blocks-loading"
           wrapperStyle={{}}
-          wrapperClass="blocks-wrapper"
+          wrapperClass={css.blocks_wrapper}
           colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
         />
       )}
-      <h2>Trending Movies</h2>
+      <h2 className={css.title}>Trending Movies</h2>
       {items && <MovieList movies={items} />}
       {error && <p>{error}</p>}
-      <ToastContainer autoClose={3000} />
     </>
   );
 };

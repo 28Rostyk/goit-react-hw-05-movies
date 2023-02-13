@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { ColorRing } from 'react-loader-spinner';
 
 import 'react-toastify/dist/ReactToastify.css';
+import css from './cast.module.css';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -18,7 +19,6 @@ const Cast = () => {
     const movieCast = async () => {
       try {
         const results = await getMovieCast(movieId);
-        console.log(results);
         setCast(results);
       } catch (error) {
         setError(toast.error('Ooops. Something went wrong...'));

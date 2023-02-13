@@ -1,0 +1,74 @@
+.blocks_wrapper {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button {
+  font-size: 16px;
+  padding: 3px;
+  background-color: rgb(44, 169, 197);
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  gap: 30px;
+  margin-left: 10px;
+}
+
+.title {
+  margin-bottom: 10px;
+}
+.popularity {
+  margin-bottom: 20px;
+}
+
+.title_overview {
+  margin-bottom: 10px;
+}
+
+.overview_text {
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+.title_genres {
+  margin-bottom: 10px;
+}
+
+.genres_text {
+  display: inline-block;
+}
+
+.genres_container {
+  display: flex;
+  gap: 5px;
+}
+
+.additional_container {
+  margin-left: 50px;
+  margin-bottom: 20px;
+}
+
+.additional_container_item {
+  margin-bottom: 10px;
+}
+
+.additional_title {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.cast {
+  font-size: 18px;
+}
+
+.reviews {
+  font-size: 18px;
+}

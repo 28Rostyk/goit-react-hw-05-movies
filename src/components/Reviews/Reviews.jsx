@@ -4,6 +4,8 @@ import { getMovieReviews } from 'services/Api';
 import { ToastContainer, toast } from 'react-toastify';
 import { ColorRing } from 'react-loader-spinner';
 import 'react-toastify/dist/ReactToastify.css';
+import css from './reviews.module.css';
+
 const Reviews = () => {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
@@ -42,16 +44,16 @@ const Reviews = () => {
       )}
       {error && <p>{error}</p>}
       {reviews.length > 0 ? (
-        <ul>
+        <ul className={css.list}>
           {reviews.map(({ id, author, content }) => (
-            <li key={id}>
-              <p>Author: {author}</p>
-              <p>{content}</p>
+            <li className={css.list_item} key={id}>
+              <p className={css.title}>Author: {author}</p>
+              <p className={css.text}>{content}</p>
             </li>
           ))}
         </ul>
       ) : (
-        <p>We don't have any reviews for this movie</p>
+        <p className={css.title}>We don't have any reviews for this movie</p>
       )}
       <ToastContainer autoClose={3000} />
     </>
