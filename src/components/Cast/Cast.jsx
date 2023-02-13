@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { ColorRing } from 'react-loader-spinner';
 
 import 'react-toastify/dist/ReactToastify.css';
-import css from './cast.module.css';
+// import css from './cast.module.css';
 
 const Cast = () => {
   const { movieId } = useParams();
