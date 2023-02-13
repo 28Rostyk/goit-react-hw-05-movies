@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { ColorRing } from 'react-loader-spinner';
 
 import 'react-toastify/dist/ReactToastify.css';
-// import css from './cast.module.css';
+import css from './cast.module.css';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -43,12 +43,13 @@ const Cast = () => {
         />
       )}
       {error && <p>{error}</p>}
-      <ul>
+      <ul className={css.list}>
         {cast.map(castItem => {
           return (
             <li key={castItem.id}>
               {
                 <img
+                  width="200"
                   src={`https://image.tmdb.org/t/p/w200${castItem.profile_path}`}
                   alt={`${castItem.name} portrait`}
                 />
