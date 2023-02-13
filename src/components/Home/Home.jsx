@@ -5,7 +5,7 @@ import { ColorRing } from 'react-loader-spinner';
 import { toast } from 'react-toastify';
 import MovieList from 'components/MovieList';
 import 'react-toastify/dist/ReactToastify.css';
-import css from './home.module.css';
+import css from './Home.module.css';
 const Home = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
