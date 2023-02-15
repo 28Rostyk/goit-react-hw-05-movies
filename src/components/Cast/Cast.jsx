@@ -43,26 +43,30 @@ const Cast = () => {
         />
       )}
       {error && <p>{error}</p>}
-      <ul className={css.list}>
-        {cast.map(castItem => {
-          return (
-            <li className={css.list_item} key={castItem.id}>
-              {
-                <img
-                  width="200"
-                  src={`https://image.tmdb.org/t/p/w200${castItem.profile_path}`}
-                  alt={`${castItem.name} portrait`}
-                />
-              }
+      {cast.length > 0 ? (
+        <ul className={css.list}>
+          {cast.map(castItem => {
+            return (
+              <li className={css.list_item} key={castItem.id}>
+                {
+                  <img
+                    width="200"
+                    src={`https://image.tmdb.org/t/p/w200${castItem.profile_path}`}
+                    alt={`${castItem.name} portrait`}
+                  />
+                }
 
-              <div>
-                <p>Name: {castItem.name}</p>
-                <p>Character: {castItem.character}</p>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
+                <div>
+                  <p>Name: {castItem.name}</p>
+                  <p>Character: {castItem.character}</p>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      ) : (
+        <p className={css.title}>We don't have any reviews for this movie</p>
+      )}
       <ToastContainer autoClose={3000} />
     </>
   );
